@@ -1,0 +1,7 @@
+=link_to "New recipe", new_recipe_path
+
+-@recipes.each do |recipe|
+  %h2
+    =link_to recipe.title, recipe
+  %div
+    =recipe.description

@@ -1,0 +1,8 @@
+%h2
+  =@recipe.title
+%p
+  =@recipe.description
+%button
+  =link_to "edit", edit_recipe_path(@recipe)
+%button
+  =link_to "delete", recipe_path(@recipe), method: :delete, data: {:confirm => 'Are you sure?'}
