@@ -1,7 +1,13 @@
 =link_to "New recipe", new_recipe_path
+<br>
 
 -@recipes.each do |recipe|
+  =link_to recipe do
+    -if recipe.photo.exists?
+      =image_tag recipe.photo.url(:medium)
+    -else
+      =image_tag("image.jpg", size:"300x300")
   %h2
-    =link_to recipe.title, recipe
+    =recipe.title
   %div
     =recipe.description

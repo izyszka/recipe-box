@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(params[:recipe].permit(:title, :description))
+    @recipe = Recipe.new(params[:recipe].permit(:title, :description, :photo))
 
     if @recipe.save
       redirect_to root_path
@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-    if @recipe.update(params[:recipe].permit(:title, :description))
+    if @recipe.update(params[:recipe].permit(:title, :description, :photo))
       redirect_to @recipe
     else
       render 'edit'

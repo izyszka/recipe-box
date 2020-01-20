@@ -1,3 +1,7 @@
+-if @recipe.photo.exists?
+  =image_tag @recipe.photo.url(:medium)
+-else
+  =image_tag("image.jpg", size:"300x300")
 %h2
   =@recipe.title
 %p
