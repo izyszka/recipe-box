@@ -60,3 +60,4 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
 gem "paperclip", "~> 6.0.0"
+gem 'cocoon', '~> 1.2', '>= 1.2.9'

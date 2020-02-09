@@ -6,6 +6,18 @@
   =@recipe.title
 %p
   =@recipe.description
+%h4
+  Ingredients:
+-@recipe.ingredients.each do |ingredient|
+  %p
+    =ingredient.quantity
+    =ingredient.name
+%h4
+  Directions:
+%ol
+  -@recipe.directions.each do |direction|
+    %li
+      =direction.step
 %button
   =link_to "edit", edit_recipe_path(@recipe)
 %button

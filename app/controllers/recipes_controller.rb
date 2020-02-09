@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(params[:recipe].permit(:title, :description, :photo))
+    @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
       redirect_to root_path
@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-    if @recipe.update(params[:recipe].permit(:title, :description, :photo))
+    if @recipe.update(recipe_params)
       redirect_to @recipe
     else
       render 'edit'
@@ -45,5 +45,9 @@ class RecipesController < ApplicationController
 
   def find_recipe
     @recipe = Recipe.find(params[:id])
+  end
+
+  def recipe_params
+    params.require(:recipe).permit(:title, :description, :image, ingredients_attributes: [:id, :name, :quantity, :_destroy], directions_attributes: [:id, :step, :_destroy])
   end
 end
